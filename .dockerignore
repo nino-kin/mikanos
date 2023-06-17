@@ -1,0 +1,21 @@
+#---------------------------------------#
+# Project Ignores                       #
+#---------------------------------------#
+apps/
+kernel/
+MikanLoaderPkg/
+
+IPA_Font_License_Agreement_v1.0.txt
+LICENSE
+Makefile
+MikanLoaderPkg/
+NOTICE/
+README.md/
+apps/
+build.sh/
+kernel/
+mikanos-after30-photo.png/
+release_pack/
+resource/
+run.sh/
+tools/
