@@ -1,4 +1,4 @@
-.PHONY: help build run debug clean
+.PHONY: help build run debug clean mkdocs-build mkdocs-serve pre-commit stop docker
 .DEFAULT_GOAL := help
 
 SHELL := /bin/bash
@@ -11,6 +11,9 @@ DOCKER_TAG := ninokin/mikanos:test
 
 # Local web server port
 DOCKER_PORT := 8090
+
+# Local Docker container name
+DOCKER_CONTAINER := test-server
 
 # Home directory
 HOME := $(shell echo $(HOME))
@@ -54,13 +57,38 @@ run: ## Run Mikan OS on QEMU
 	 echo -e "[INFO] Run Mikan OS on QEMU..."; \
 	 source $(MAKEFILE_DIR)/build.sh run && echo -e "[INFO] Build was successfully!"
 
-debug: ## Debug to check environment variables
-	@source $(HOME)/osbook/devenv/buildenv.sh; \
-	 echo "CPPFLAGS: $$CPPFLAGS"; \
-	 echo "LDFLAGS: $$LDFLAGS"
-
 clean: ## Clean up the site image and generated documentation
-	@echo -e "[INFO] Delete artifacts..."
+	@echo -e "[INFO] Removing artifacts..."
 	@git ls-files --others --ignored --exclude-standard | grep -E "^(apps|kernel)" | xargs -I{} rm {}
-	@rm *.img
-	@echo -e "[INFO] Deleting artifacts was successfully!"
+	@[ -z "$$(find . -maxdepth 1 -type f -name '*.img')" ] || rm *.img
+	@[ -z "$$(docker images --quiet $(DOCKER_TAG))" ] || docker image rm $(DOCKER_TAG)
+	@[ -z "$$(find . -maxdepth 1 -type d -name 'site')" ] || sudo chmod -R 777 site/ && rm -rf site/
+	@echo -e "[INFO] Removing artifacts was successfully!"
+
+#---------------------------------------#
+# MkDocs                                #
+#---------------------------------------#
+mkdocs-build: ## Build documentation for MkDocs
+	@docker run --rm -it -v $(PWD):/docs squidfunk/mkdocs-material build
+
+mkdocs-serve: ## Serve documentation for MkDocs
+	@docker run --rm -it -p 8000:8000 -v $(PWD):/docs squidfunk/mkdocs-material
+
+#---------------------------------------#
+# pre-commit                            #
+#---------------------------------------#
+# FIXME: The following option is not available. If you use them, please fix before using.
+pre-commit: docker ## pre-commit (NOT available)
+	@docker run --rm -v $(PWD):/app $(DOCKER_TAG)
+
+debug: docker ## Debug to check environment variables (NOT available)
+	@docker run --name $(DOCKER_CONTAINER) -v $(PWD):/app -it -d $(DOCKER_TAG)
+	@docker exec -it $(DOCKER_CONTAINER) bash
+
+stop: ## kill Docker container
+	@docker kill $(DOCKER_CONTAINER)
+
+docker: ## Build the Docker image
+	@echo -e "[INFO] Building the Docker image..."
+	@docker build -t $(DOCKER_TAG) .
+	@echo -e "[INFO] Building the Docker image is successfully!"
