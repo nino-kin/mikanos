@@ -10,15 +10,14 @@ assignees: ''
 ## Overview
 
 _**Required**, a clear and concise description of what the problem about this issue._
-Describe the solution you'd like
 
 ## Expected behavior
 
 _**Required**, a clear and concise description of what you want to happen._
 
-## Describe alternatives you've considered
+## Solutions you've considered
 
-_**Optional**, a clear and concise description of any alternative solutions or features you've considered._
+_**Optional**, a clear and concise description of any solutions or features you've considered._
 
 ## Additional context
 
