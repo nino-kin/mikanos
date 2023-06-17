@@ -3,6 +3,7 @@
 
 SHELL := /bin/bash
 
+# Makefile directory
 MAKEFILE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 
 # Local Docker image tag
@@ -11,7 +12,7 @@ DOCKER_TAG := ninokin/mikanos:test
 # Local web server port
 DOCKER_PORT := 8090
 
-# Current working directory
+# Home directory
 HOME := $(shell echo $(HOME))
 
 # Current working directory
@@ -45,15 +46,13 @@ build: ## Build Mikan OS
 	@echo -e "[INFO] Setup environment variables..."; \
 	 source $(HOME)/osbook/devenv/buildenv.sh; \
 	 echo -e "[INFO] Build Mikan OS..."; \
-	 source $(PWD)/build.sh
-	@echo -e "[INFO] Build was successfully!"
+	 source $(MAKEFILE_DIR)/build.sh && echo -e "[INFO] Build was successfully!"
 
 run: ## Run Mikan OS on QEMU
 	@echo -e "[INFO] Setup environment variables..."; \
 	 source $(HOME)/osbook/devenv/buildenv.sh; \
 	 echo -e "[INFO] Run Mikan OS on QEMU..."; \
-	 source $(PWD)/build.sh run
-	@echo -e "[INFO] Build was successfully!"
+	 source $(MAKEFILE_DIR)/build.sh run && echo -e "[INFO] Build was successfully!"
 
 debug: ## Debug to check environment variables
 	@source $(HOME)/osbook/devenv/buildenv.sh; \
