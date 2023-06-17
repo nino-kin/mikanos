@@ -271,7 +271,7 @@ EFI_STATUS EFIAPI UefiMain(
 
   Print(L"Hello, Mikan World!\n");
 
-  CHAR8 memmap_buf[4096 * 4];
+  CHAR8 memmap_buf[4096 * 4]; //TODO: [chapter2] If the memory map is insufficient, increase memmap_bug to 8KiB, 16KiB, etc.
   struct MemoryMap memmap = {sizeof(memmap_buf), memmap_buf, 0, 0, 0, 0};
   status = GetMemoryMap(&memmap);
   if (EFI_ERROR(status)) {

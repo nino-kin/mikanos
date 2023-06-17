@@ -1,4 +1,4 @@
-.PHONY: help build run debug clean mkdocs-build mkdocs-serve pre-commit stop docker
+.PHONY: help build run debug clean qemu mkdocs-build mkdocs-serve pre-commit stop docker
 .DEFAULT_GOAL := help
 
 SHELL := /bin/bash
@@ -45,6 +45,9 @@ help: ## Show this help message
 	| sort \
 	| awk 'BEGIN {FS = ":.*?## "}; {printf "  %-20s %s\n", $$1, $$2}'
 
+#---------------------------------------#
+# MkDocs                                #
+#---------------------------------------#
 build: ## Build Mikan OS
 	@echo -e "[INFO] Setup environment variables..."; \
 	 source $(HOME)/osbook/devenv/buildenv.sh; \
@@ -57,10 +60,15 @@ run: ## Run Mikan OS on QEMU
 	 echo -e "[INFO] Run Mikan OS on QEMU..."; \
 	 source $(MAKEFILE_DIR)/build.sh run && echo -e "[INFO] Build was successfully!"
 
+qemu: ## Run Loader.efi on QEMU
+	@$(HOME)/osbook/devenv/run_qemu.sh $(HOME)/edk2/Build/MikanLoaderX64/DEBUG_CLANG38/X64/Loader.efi
+	@mkdir -p mnt && sudo mount -o loop disk.img mnt
+
 clean: ## Clean up the site image and generated documentation
 	@echo -e "[INFO] Removing artifacts..."
 	@git ls-files --others --ignored --exclude-standard | grep -E "^(apps|kernel)" | xargs -I{} rm {}
 	@[ -z "$$(find . -maxdepth 1 -type f -name '*.img')" ] || rm *.img
+	@[ -z "$$(find . -maxdepth 1 -type d -name 'mnt')" ] || && rm -rf mnt/
 	@[ -z "$$(docker images --quiet $(DOCKER_TAG))" ] || docker image rm $(DOCKER_TAG)
 	@[ -z "$$(find . -maxdepth 1 -type d -name 'site')" ] || sudo chmod -R 777 site/ && rm -rf site/
 	@echo -e "[INFO] Removing artifacts was successfully!"
