@@ -1,0 +1,715 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ninokin Guide for Mikan OS.">
+      
+      
+      
+        <link rel="canonical" href="https://nino-kin.github.io/mikanos/getting-started/">
+      
+      
+        <link rel="prev" href="../tools/docker/">
+      
+      
+        <link rel="next" href="../configuration/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
+    
+    
+      
+        <title>Getting Started - Mikan OS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href=".." title="Mikan OS" class="md-header__button md-logo" aria-label="Mikan OS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mikan OS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mikan OS" class="md-nav__button md-logo" aria-label="Mikan OS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    Mikan OS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Getting Started
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ビルド環境の構築
+  </a>
+  
+    <nav class="md-nav" aria-label="ビルド環境の構築">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    リポジトリのダウンロード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    開発ツールの導入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    標準ライブラリのライセンスについて
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mikanos" class="md-nav__link">
+    MikanOS のソースコードの入手
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ブートローダーのビルド
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mikanos_1" class="md-nav__link">
+    MikanOS のビルド
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ビルド環境の構築
+  </a>
+  
+    <nav class="md-nav" aria-label="ビルド環境の構築">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    リポジトリのダウンロード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    開発ツールの導入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    標準ライブラリのライセンスについて
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mikanos" class="md-nav__link">
+    MikanOS のソースコードの入手
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ブートローダーのビルド
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mikanos_1" class="md-nav__link">
+    MikanOS のビルド
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
+<!-- cSpell:word libc, libg, libm, libcxx, libfreetype -->
+<!-- cSpell:word uchan, mikan, mikanos, osbook, tview, Nasm, devenv, iasl, newlib, edksetup, freetype, distutils, buildenv  -->
+
+<p>このリポジトリは uchan が開発している教育用 OS <a href="https://github.com/uchan-nos/mikanos">MikanOS</a> をビルドする手順およびツールを収録しています。
+Ubuntu 18.04 で動作を確認しています。</p>
+<p>ここで紹介する手順は Linux のコマンド操作にある程度慣れていることを前提に書かれています。
+Linux のコマンドに不慣れな方は、まず <a href="https://github.com/uchan-nos/os-from-zero/wiki/Basic-Linux-Commands">これだけは知っておきたい Linux コマンド</a> を読むことをお勧めします。</p>
+<p>MikanOS のビルド手順は大きく次の 4 段階です。</p>
+<ol>
+<li>ビルド環境の構築</li>
+<li>MikanOS のソースコードの入手</li>
+<li>ブートローダーのビルド</li>
+<li>MikanOS のビルド</li>
+</ol>
+<h2 id="_1">ビルド環境の構築<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>ブートローダーおよび MikanOS 本体のビルドに必要なツールやファイルを揃えます。</p>
+<h3 id="_2">リポジトリのダウンロード<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>まずは Git をインストールして，mikanos-build リポジトリをダウンロードします。</p>
+<pre class="codehilite"><code class="linenums">sudo apt update
+sudo apt install git
+cd $HOME
+git clone https://github.com/uchan-nos/mikanos-build.git osbook
+</code></pre>
+
+<p>mikanos-build 最新版は Ubuntu 22.04 をサポートしています。ただし、導入される lld-14 を使うとリンクアドレスがズレることにより OS やアプリが誤動作することが分かっています。</p>
+<ul>
+<li><a href="https://github.com/uchan-nos/os-from-zero/issues/134">day03a以降、カーネルの起動まで進まない · Issue #134</a></li>
+<li><a href="https://github.com/uchan-nos/mikanos/issues/4">tviewをLLVM 10でビルドするとページフォルトが発生する · Issue #4</a></li>
+</ul>
+<p>lld-7 を使いたい場合は Ubuntu 18.04 か 20.04 をお使いください。Ubuntu 18.04 や 20.04 向けには次のコマンドを実行して古い mikanos-build を利用してください。</p>
+<pre class="codehilite"><code class="linenums">cd osbook
+git checkout 8d4882122ec548ef680b6b5a2ae841a0fd4d07a1
+</code></pre>
+
+<h3 id="_3">開発ツールの導入<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>次に Clang，Nasm といった開発ツールや，EDK IIのセットアップを行います。
+<code>ansible_provision.yml</code> に必要なツールが記載されています。
+Ansible を使ってセットアップを行うと楽です。</p>
+<p>注意）ansible_provision.yml は LLVM7 をデフォルトに設定します。これは Ubuntu の alternatives という仕組みを使い、/usr/bin 以下にリンクを張ることで実現しています。</p>
+<pre class="codehilite"><code class="linenums">sudo apt install ansible
+cd $HOME/osbook/devenv
+ansible-playbook -K -i ansible_inventory ansible_provision.yml
+</code></pre>
+
+<p>NOTE: When executing the above commands, I encountered the following errors.</p>
+<pre class="codehilite"><code class="linenums">$ ansible-playbook -K -i ansible_inventory ansible_provision.yml
+
+PLAY [all] ***************************************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [ensure development tools are at the latest version] ****************************************************************************************************************************************************************
+fatal: [localhost]: FAILED! =&gt; {&quot;changed&quot;: false, &quot;msg&quot;: &quot;No package matching 'llvm-14-dev' is available&quot;}
+        to retry, use: --limit @/home/username/osbook/devenv/ansible_provision.retry
+
+PLAY RECAP ***************************************************************************************************************************************************************************************************************
+localhost                  : ok=1    changed=0    unreachable=0    failed=1
+</code></pre>
+
+<p>I could resolve this error to run the following commands. For more information, please see <a href="https://askubuntu.com/questions/1415621/how-to-install-clang-14-on-ubuntu-18-04">here</a>.</p>
+<pre class="codehilite"><code class="linenums">sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update &amp;&amp; sudo apt upgrade
+wget https://apt.llvm.org/llvm.sh
+chmod +x llvm.sh &amp;&amp; sudo ./llvm.sh 14
+</code></pre>
+
+<p>セットアップが上手くいけば <code>iasl</code> というコマンドがインストールされ，<code>$HOME/edk2</code> というディレクトリが生成されているはずです。
+これらがなければセットアップが失敗しています。</p>
+<pre class="codehilite"><code class="linenums">iasl -v
+ls $HOME/edk2
+</code></pre>
+
+<p>WSL 上の Ubuntu で上記のコマンドを実行すると，<code>$HOME/.profile</code> に <code>DISPLAY</code> 環境変数の設定が追加されることがあります。
+この設定を有効にするにはターミナルを再起動するか，次のコマンドを実行する必要があります。</p>
+<pre class="codehilite"><code class="linenums">source $HOME/.profile
+</code></pre>
+
+<h3 id="_4">標準ライブラリのライセンスについて<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>加えて，上記の <code>ansible-playbook</code> コマンドはビルド済みの標準ライブラリを <code>$HOME/osbook/devenv/x86_64-elf</code> にダウンロードします。</p>
+<p>このディレクトリに含まれるファイルは <a href="https://sourceware.org/newlib/">Newlib</a>，<a href="https://libcxx.llvm.org/">libc++</a>，<a href="https://www.freetype.org/">FreeType</a> をビルドしたものです。
+それらのライセンスはそれぞれのライブラリ固有のライセンスに従います。
+MikanOS や mikanos-build リポジトリ全体のライセンスとは異なりますので注意してください。</p>
+<p>次のファイル群は Newlib 由来です。ライセンスは <code>x86_64-elf/LICENSE.newlib</code> を参照してください。</p>
+<pre class="codehilite"><code class="linenums">x86_64-elf/lib/
+    libc.a
+    libg.a
+    libm.a
+x86_64-elf/include/
+    c++/ を除くすべて
+</code></pre>
+
+<p>次のファイル群は libc++ 由来です。ライセンスは <code>x86_64-elf/LICENSE.libcxx</code> を参照してください。</p>
+<pre class="codehilite"><code class="linenums">x86_64-elf/lib/
+    libc++.a
+    libc++abi.a
+    libc++experimental.a
+x86_64-elf/include/c++/v1/
+    すべて
+</code></pre>
+
+<p>次のファイル群は FreeType 由来です。ライセンスは <code>x86_64-elf/LICENSE.freetype</code> を参照してください。</p>
+<pre class="codehilite"><code class="linenums">x86_64-elf/lib/
+    libfreetype.a
+x86_64-elf/include/freetype2/
+    すべて
+</code></pre>
+
+<h2 id="mikanos">MikanOS のソースコードの入手<a class="headerlink" href="#mikanos" title="Permanent link">&para;</a></h2>
+<p>Git で入手できます。</p>
+<pre class="codehilite"><code class="linenums">git clone https://github.com/uchan-nos/mikanos.git
+</code></pre>
+
+<p>最後の <code>git clone</code> によって、カレントディレクトリに mikanos ディレクトリが生成され、そこに MikanOS のソースコードがダウンロードされます。</p>
+<h2 id="_5">ブートローダーのビルド<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>EDK II のディレクトリに MikanOS ブートローダーのディレクトリをリンクします。</p>
+<table>
+<thead>
+<tr>
+<th align="left"><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/26a0.svg" title=":warning:" /> 以下の <code>/path/to/mikanos</code> はご自身の環境に適した文字列に置き換えてください。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">『ゼロからのOS自作入門』にしたがって実験している場合は <code>ln -s $HOME/workspace/mikanos/MikanLoaderPkg ./</code> となるはずです。</td>
+</tr>
+</tbody>
+</table>
+<pre class="codehilite"><code class="linenums">cd $HOME/edk2
+ln -s /path/to/mikanos/MikanLoaderPkg ./
+</code></pre>
+
+<p><code>/path/to/mikanos</code> は先ほど <code>git clone</code> でダウンロードした mikanos ディレクトリへのパスを指定します。
+ブートローダーのソースコードが正しく見えればリンク成功です。</p>
+<pre class="codehilite"><code class="linenums">ls MikanLoaderPkg/Main.c
+</code></pre>
+
+<p>次に，<code>edksetup.sh</code> を読み込むことで EDK II のビルドに必要な環境変数を設定します。</p>
+<pre class="codehilite"><code class="linenums">source edksetup.sh
+</code></pre>
+
+<p><code>edksetup.sh</code> ファイルを読み込むと，環境変数が設定される他に <code>Conf/target.txt</code> が自動的に生成されます。
+このファイルをエディタで開き，次の項目を修正します。</p>
+<table>
+<thead>
+<tr>
+<th>設定項目</th>
+<th>設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACTIVE_PLATFORM</td>
+<td>MikanLoaderPkg/MikanLoaderPkg.dsc</td>
+</tr>
+<tr>
+<td>TARGET</td>
+<td>DEBUG</td>
+</tr>
+<tr>
+<td>TARGET_ARCH</td>
+<td>X64</td>
+</tr>
+<tr>
+<td>TOOL_CHAIN_TAG</td>
+<td>CLANG38</td>
+</tr>
+</tbody>
+</table>
+<p>設定が終わったらブートローダーをビルドします。</p>
+<pre class="codehilite"><code class="linenums">build
+</code></pre>
+
+<ul>
+<li>「ModuleNotFoundError: No module named 'distutils.util'」というエラーが出る場合は、<code>sudo apt install python3-distutils</code> を実行してから再度 <code>build</code> を実行すると上手くいく可能性があります。試してみてください。</li>
+<li>「Instance of library class [RegisterFilterLib] is not found」というエラーが出てビルドが失敗する場合は <a href="https://github.com/uchan-nos/os-from-zero/blob/main/faq.md#registerfilterlib-%E9%96%A2%E4%BF%82%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A7-mikanloaderpkg-%E3%81%8C%E3%83%93%E3%83%AB%E3%83%89%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%9B%E3%82%93">RegisterFilterLib 関係のエラーで MikanLoaderPkg がビルドできません</a> を参照してください。</li>
+</ul>
+<p>NOTE: To checkout the edk2 of old version, I can resolve this problem.</p>
+<p>Loader.efi ファイルが出力されていればビルド成功です。</p>
+<pre class="codehilite"><code class="linenums">ls Build/MikanLoaderX64/DEBUG_CLANG38/X64/Loader.efi
+</code></pre>
+
+<h2 id="mikanos_1">MikanOS のビルド<a class="headerlink" href="#mikanos_1" title="Permanent link">&para;</a></h2>
+<p>ビルドに必要な環境変数を読み込みます。</p>
+<pre class="codehilite"><code class="linenums">source $HOME/osbook/devenv/buildenv.sh
+</code></pre>
+
+<p>ビルドします。</p>
+<pre class="codehilite"><code class="linenums">cd /path/to/mikanos
+./build.sh
+</code></pre>
+
+<p>QEMU で起動するには <code>./build.sh</code> に <code>run</code> オプションを指定します。</p>
+<pre class="codehilite"><code class="linenums">./build.sh run
+</code></pre>
+
+<p>apps ディレクトリにアプリ群を入れ、フォントなどのリソースをも含めたディスクイメージを作るには APPS_DIR と RESOURCE_DIR 変数を指定します。</p>
+<pre class="codehilite"><code class="linenums">APPS_DIR=apps RESOURCE_DIR=resource ./build.sh run
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": {"tabs": true}, "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a51614de.min.js"></script>
+      
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+        
+      
+        
+          <script src="../javascripts/config.js"></script>
+        
+      
+    
+  </body>
+</html>

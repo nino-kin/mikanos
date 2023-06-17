@@ -1,0 +1,466 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ninokin Guide for Mikan OS.">
+      
+      
+      
+        <link rel="canonical" href="https://nino-kin.github.io/mikanos/how-to-send-pull-request/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
+    
+    
+      
+        <title>プルリクエストの送り方 - Mikan OS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href=".." title="Mikan OS" class="md-header__button md-logo" aria-label="Mikan OS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mikan OS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              プルリクエストの送り方
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mikan OS" class="md-nav__button md-logo" aria-label="Mikan OS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    Mikan OS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    プルリクエストとは
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    プルリクエストの出し方
+  </a>
+  
+    <nav class="md-nav" aria-label="プルリクエストの出し方">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mikanos-fork" class="md-nav__link">
+    mikanos リポジトリを自分のアカウントへ Fork する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fork" class="md-nav__link">
+    Fork したリポジトリに対して変更をコミットする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fork_1" class="md-nav__link">
+    Fork したリポジトリから、元のリポジトリへのプルリクエストを作る
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">プルリクエストの送り方<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>GitHub で MikanOS に対してプルリクエストを送る方法を説明します。</p>
+<h2 id="_2">プルリクエストとは<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>プルリクエストとは、あるリポジトリに対し、変更を提案することです。Git のプル操作を、リポジトリ所有者に対して要請（リクエスト）することから、このような名前になっています。</p>
+<p>MikanOS のバグを修正、あるいは新機能を追加するような場合に、プルリクエストを送ることができます。
+リポジトリ所有者（uchan-nos）は、プルリクエストを受け取るとその変更提案が妥当かどうかをチェックし、妥当であれば変更を受け入れます。</p>
+<p>Issues でバグの報告や新機能の要望をするだけの場合に比べて、プルリクエストでは具体的なソースコードの変更提案を行うことができるため、迅速にバグの修正や新機能の追加ができる可能性が高くなります。
+また、自分のソースコードが MikanOS に取り込まれることで、晴れて MikanOS 作者の 1 人となります。</p>
+<h2 id="_3">プルリクエストの出し方<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>ここで説明するのは、MikanOS に限らず、GitHub で一般に通用する方法です。
+他の OSS に対して修正提案をする場合でも役立つでしょう。</p>
+<p>プルリクエストを出す大まかな流れは次の通りです。</p>
+<ol>
+<li>mikanos リポジトリを自分のアカウントへ Fork する</li>
+<li>Fork したリポジトリに対して変更をコミットする</li>
+<li>Fork したリポジトリから、元のリポジトリへのプルリクエストを作る</li>
+</ol>
+<p>1 と 3 の手順は、uchan-nos/mikanos リポジトリへの書き込み権限を持たない開発者が mikanos リポジトリを変更するために必要な手順です。
+uchan-nos/mikanos リポジトリは一部の開発者にのみ書き込み権限が付与されており、その他の開発者は読み込み権限しかありません。
+そのため、mikanos リポジトリに変更を加えるためには、いったん、mikanos リポジトリを自分のアカウント配下へと Fork する必要があるのです。</p>
+<p>2 の手順で、mikanos リポジトリに対し必要な修正を行います。
+修正を行う際は、意味のまとまりが綺麗になるようにコミットを適切に分割するなど、一般的な開発マナーを守ってください。
+修正が完了したら、3 の手順によりプルリクエストを作成し、提出します。</p>
+<h3 id="mikanos-fork">mikanos リポジトリを自分のアカウントへ Fork する<a class="headerlink" href="#mikanos-fork" title="Permanent link">&para;</a></h3>
+<p>mikanos リポジトリを GitHub で開くと、「Fork」と書かれたボタンがあるはずです。</p>
+<p><img alt="GitHub Fork Button" src="../images/github-fork-button.png" /></p>
+<p>ここをクリックして、自分のアカウントへ Fork してください。
+Fork 先に複数の選択肢が出るかもしれませんが、特にこだわりが無ければ自分のアカウントへ Fork すれば OK です。</p>
+<p>Fork は通常、数秒だけ時間がかかります。Fork 中は次のような表示になりますから、終わるまで待ちましょう。</p>
+<p><img alt="GitHub Fork Progress" src="../images/github-fork-progress.png" /></p>
+<p>Fork が完了すると、自分のアカウントに mikanos リポジトリが複製され、「forked from uchan-nos/mikanos」と Fork 元が表示されます。</p>
+<p><img alt="GitHub Fork Finished" src="../images/github-forked-from.png" /></p>
+<p>（画像は sudabon さんが、ご自身のリポジトリへ Fork したときの表示です。sudabon さん、画像提供ありがとうございました！）</p>
+<h3 id="fork">Fork したリポジトリに対して変更をコミットする<a class="headerlink" href="#fork" title="Permanent link">&para;</a></h3>
+<p>この手順は、通常、手元のマシンに mikanos リポジトリを git clone して行います。
+普通は uchan-nos/mikanos を git clone して手元でビルドし、開発しているかと思います。
+Fork したリポジトリに対して変更をコミットするには、「あなたのアカウント/mikanos」リポジトリを git clone しなければなりません。</p>
+<p>git clone のやり方はウェブ上に記事が多数ありますので、詳しくはそれらの記事に譲るとして、以下で概略を説明します。</p>
+<p>「あなたのアカウント/mikanos」を git clone するには、「あなたのアカウント/mikanos」を GitHub で開き、「Code」ボタンをクリックします。</p>
+<p><img alt="GitHub Clone Repository" src="../images/github-clone-repository.png" /></p>
+<p>Code ボタンをクリックすると「Clone」という項目の中に、HTTPS や SSH といった表示が出ます。
+お好みの方法を選択し、表示された URL をコピーします。
+手元のマシンのターミナルで <code>git clone &lt;コピーしたURL&gt;</code> というコマンドを実行すると、あなたのアカウントに Fork したリポジトリを git clone することができます。</p>
+<p>clone したリポジトリに対し、修正を加え、デバッグし、コミットします。
+一連の修正が完了したら <code>git push</code> により一連のコミットを GitHub 上へ送ります。
+Fork 元のリポジトリは uchan-nos しか書き込めませんが、今 push しようとしているのは Fork した <strong>あなたの</strong> リポジトリですから、push できるのです。</p>
+<h3 id="fork_1">Fork したリポジトリから、元のリポジトリへのプルリクエストを作る<a class="headerlink" href="#fork_1" title="Permanent link">&para;</a></h3>
+<p>変更を push すると、GitHub のリポジトリのトップページに、次のような「Pull Request」リンクが出現します。
+「This branch is 1 commit ahead of osdev-jp:master」を日本語にすると「このブランチは osdev-jp:master より1コミット進んでいます」という意味です。
+Fork 元（osdev-jp:master）よりも 1 コミット新しくなっていますが、Pull Request を作成しませんか、と提案されているわけですね。</p>
+<p><img alt="GitHub Pull Request Suggestion" src="../images/github-pull-request-suggestion.png" /></p>
+<p>「Pull Request」リンクをクリックすると次のような画面になります。</p>
+<p><img alt="GitHub Create Pull Request Button" src="../images/github-create-pull-request-button.png" /></p>
+<p>この画面では、プルリクエストに含まれることになる差分が表示されます。
+差分が正しいことを確認して、OK なら「Create Pull Request」をクリックします。</p>
+<p><img alt="GitHub Create Pull Request Button" src="../images/github-describe-pull-request.png" /></p>
+<p>出てきた画面で、プルリクエストのタイトル、および内容を書き、「Create Pull Request」をクリックします。
+これでプルリクエストが Fork 元リポジトリに提出されます。</p>
+<p>プルリクエストは、すぐにマージされず、質問や議論のためにコメントが付くかもしれません。
+コメントが付いたら返信し、マージを目指します。</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": {"tabs": true}, "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a51614de.min.js"></script>
+      
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+        
+      
+        
+          <script src="../javascripts/config.js"></script>
+        
+      
+    
+  </body>
+</html>

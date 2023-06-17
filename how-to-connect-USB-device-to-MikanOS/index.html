@@ -1,0 +1,484 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ninokin Guide for Mikan OS.">
+      
+      
+      
+        <link rel="canonical" href="https://nino-kin.github.io/mikanos/how-to-connect-USB-device-to-MikanOS/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
+    
+    
+      
+        <title>USB デバイスを MikanOS に接続する方法 - Mikan OS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#usb-mikanos" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href=".." title="Mikan OS" class="md-header__button md-logo" aria-label="Mikan OS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mikan OS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              USB デバイスを MikanOS に接続する方法
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mikan OS" class="md-nav__button md-logo" aria-label="Mikan OS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    Mikan OS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#windows-usb-ubuntu" class="md-nav__link">
+    Windows に接続された USB デバイスを Ubuntu に認識させる方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mikanos-usb" class="md-nav__link">
+    MikanOS に USB デバイスを接続する
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usb" class="md-nav__link">
+    USB シリアル変換の速度設定
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="usb-mikanos">USB デバイスを MikanOS に接続する方法<a class="headerlink" href="#usb-mikanos" title="Permanent link">&para;</a></h1>
+<p>この文書では、ホスト OS に接続された USB デバイスを MikanOS に接続する方法を説明
+します。Windows 11 上の WSL2 で動作する Ubuntu 20.04 を前提としますが、他のバー
+ジョンでも参考になると思います。</p>
+<h2 id="windows-usb-ubuntu">Windows に接続された USB デバイスを Ubuntu に認識させる方法<a class="headerlink" href="#windows-usb-ubuntu" title="Permanent link">&para;</a></h2>
+<p>IP ネットワークで USB デバイスを共有する USB/IP という仕組みを用いると、Windows
+（ホスト OS）に接続された USB デバイスを Ubuntu on WSL から使えるようにできます。
+詳しい方法は <a href="https://docs.microsoft.com/ja-jp/windows/wsl/connect-usb">USB デバイスを接続する | Microsoft Docs</a> を参照してくださ
+い。</p>
+<p>以降では usbipd コマンドが使用可能になっている前提で説明します。WSL を使わず、実
+機で Ubuntu を実行している場合はこの手順をスキップして次に進んでください。</p>
+<p>tools/attach_usbdev.sh は usbipd コマンドを使用して USB デバイスを Ubuntu に接続
+するためのスクリプトです。引数無しで実行すると、Windows に接続されている USB デ
+バイスのリストが表示されます。</p>
+<pre class="codehilite"><code class="linenums">$ tools/attach_usbdev.sh
+Please specify a bus id to be attached
+BUSID  DEVICE                                 STATE
+...
+2-4    USB シリアル デバイス                  Not attached
+</code></pre>
+
+<p>例えば BUSID = 2-4 が希望する USB デバイスだとします。希望するデバイスがどれか分
+からない場合、USB デバイスを抜いた状態と挿した状態それぞれで attach_usbdev.sh を
+実行すれば判明すると思います。</p>
+<p>Ubuntu に接続したい USB デバイスの BUSID が分かったら、それを引数としてもう一度
+スクリプトを実行します。</p>
+<pre class="codehilite"><code class="linenums">$ tools/attach_usbdev.sh 2-4
+Attaching a specified device: BUS_ID = 2-4
+</code></pre>
+
+<p>実行すると、「このアプリがデバイスに変更を加えることを許可しますか？」という
+Windows のユーザーアカウント制御ダイアログが出ますので「はい」を選んでください。
+次に「[sudo] password for ユーザー名:」のようなプロンプトが表示されると思います。
+ここには Ubuntu のログインパスワードを入力してください（sudo コマンドの実行時に
+入力するパスワードです）。</p>
+<p>これで指定した USB デバイスが Ubuntu に接続されたはずです。attach_usbdev.sh を実
+行してきちんと接続されたことを確認してください。STATE が Attached になっていれば
+成功です。</p>
+<pre class="codehilite"><code class="linenums">$ tools/attach_usbdev.sh
+Please specify a bus id to be attached
+BUSID  DEVICE                                 STATE
+...
+2-4    USB シリアル デバイス                  Attached - Ubuntu-20.04
+</code></pre>
+
+<h2 id="mikanos-usb">MikanOS に USB デバイスを接続する<a class="headerlink" href="#mikanos-usb" title="Permanent link">&para;</a></h2>
+<p>Ubuntu に USB デバイスが接続されたら、lsusb コマンドでバス番号とデバイス番号を確
+認します。</p>
+<pre class="codehilite"><code class="linenums">$ lsusb
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 003: ID 04d8:000a Microchip Technology, Inc. CDC RS-232 Emulation Demo
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+</code></pre>
+
+<p>実機で Ubuntu を実行している場合はもっとたくさんのデバイスが表示されると思います。
+上記の例は Ubuntu on WSL なので、最低限のデバイスしか見えていませんね。「Linux
+Foundation」と書いてあるデバイスは Ubuntu に最初から接続されているものです。ここ
+では「Microchip Technology, Inc.」と書いてあるデバイスを MikanOS に接続するとし
+て説明を進めます。</p>
+<p>MikanOS を動かす QEMU がこの USB デバイスを読み書きできるようにするため、デバイ
+スファイルのパーミッションを調整します。lsusb の出力で Bus と Device の番号を調
+べ（ここでは Bus 001、Device 003）、デバイスファイルを探します。この USB デバイ
+スに対応するデバイスファイルは /dev/bus/usb/<Bus>/<Device> にあります。</p>
+<pre class="codehilite"><code class="linenums">$ ls -l /dev/bus/usb/001/003
+crw------- 1 root root 189, 2 Jul  6 17:46 /dev/bus/usb/001/003
+</code></pre>
+
+<p>初期状態では、パーミッションが 600（rw-------）になっていることが分かります。一
+般ユーザーが読み書きできるよう、666（rw-rw-rw-）に変更します。</p>
+<pre class="codehilite"><code class="linenums">$ sudo chmod 666 /dev/bus/usb/001/003
+</code></pre>
+
+<p>ここまできたら、QEMU に USB デバイスを接続するオプションを渡して MikanOS を起動
+すれば、MikanOS に USB デバイスを接続することができます。QEMU のオプションは
+<code>-device usb-host,hostbus=&lt;Bus&gt;,hostaddr=&lt;Device&gt;</code> という形式です。Bus=1、Device
+=3 ですので、最終的に次のコマンドとなります。</p>
+<pre class="codehilite"><code class="linenums">QEMU_OPTS=&quot;-device usb-host,hostbus=1,hostaddr=3&quot; ./run.sh
+</code></pre>
+
+<p>run.sh は MikanOS を手軽に実行するためのスクリプトです。QEMU_OPTS 変数に指定した
+文字列は QEMU のオプションとして渡されます。</p>
+<h2 id="usb">USB シリアル変換の速度設定<a class="headerlink" href="#usb" title="Permanent link">&para;</a></h2>
+<p>MikanOS は現在、CDC ACM という USB クラスを試験的にサポートしています。CDC ACM
+は通信を主目的とする USB デバイスのためのクラスで、USB シリアル変換やイーサネッ
+トなどの通信デバイスが該当します。先の例で接続した「CDC RS-232 Emulation Demo」
+は USB とシリアル通信（RS-232）を変換するデバイスです。</p>
+<p>シリアル通信は通信速度を相手側デバイスと合わせなければ正しく通信できません。
+MikanOS にはまだ CDC ACM にしたがって通信速度を設定する機能がありませんので、外
+部から通信速度を設定する必要があります。CDC ACM 機器が Linux に接続されると、初
+期値として 9600bps に設定されるようです。それ以外の速度に変更するためには、QEMU
+を起動する前に次のコマンドを実行します。</p>
+<pre class="codehilite"><code class="linenums">$ sudo stty -F /dev/ttyACM0 115200
+</code></pre>
+
+<p><code>/dev/ttyACM0</code> は実際のデバイスファイル名に書き換えてください。<code>115200</code> はお好み
+の通信速度（ボーレート）に変えてください。</p>
+<p>どうやら QEMU を終了すると設定が 9600 のデフォルト値に戻ってしまうようですので、
+QEMU を起動する前に毎回上記のコマンドを実行する必要があります。</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": {"tabs": true}, "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a51614de.min.js"></script>
+      
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+        
+      
+        
+          <script src="../javascripts/config.js"></script>
+        
+      
+    
+  </body>
+</html>
