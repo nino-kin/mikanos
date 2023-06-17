@@ -1,4 +1,4 @@
-.PHONY: help build run debug clean mkdocs-build mkdocs-serve
+.PHONY: help build run debug clean mkdocs-build mkdocs-serve pre-commit stop docker
 .DEFAULT_GOAL := help
 
 SHELL := /bin/bash
