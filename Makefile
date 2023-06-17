@@ -1,4 +1,4 @@
-.PHONY: help build run debug clean
+.PHONY: help build run debug clean doc serve
 .DEFAULT_GOAL := help
 
 SHELL := /bin/bash
@@ -64,3 +64,12 @@ clean: ## Clean up the site image and generated documentation
 	@git ls-files --others --ignored --exclude-standard | grep -E "^(apps|kernel)" | xargs -I{} rm {}
 	@rm *.img
 	@echo -e "[INFO] Deleting artifacts was successfully!"
+
+#---------------------------------------#
+# MkDocs                                #
+#---------------------------------------#
+doc: ## Build documentation for MkDocs
+	@docker run --rm -it -v $(PWD):/docs squidfunk/mkdocs-material build
+
+serve: ## Serve documentation for MkDocs
+	@docker run --rm -it -p 8000:8000 -v $(PWD):/docs squidfunk/mkdocs-material
