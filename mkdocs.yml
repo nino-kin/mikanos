@@ -1,0 +1,49 @@
+site_name: Mikan OS
+site_url: https://nino-kin.github.io/mikanos/
+site_description: Ninokin Guide for Mikan OS.
+
+nav:
+  - Home: index.md
+  - Docker: tools/docker.md
+  - Guide:
+    - Getting Started: getting-started.md
+    - Configuration: configuration.md
+
+theme:
+    name: material
+    language: 'ja'
+    icon:
+      logo: material/school
+      repo: fontawesome/brands/git-alt
+    features:
+          tabs: true # タブ表示を有効化.
+
+markdown_extensions:
+  - admonition
+  - toc: # 見出しに関する設定。ここでは見出し末尾にアンカーリンクを表示させています。
+      permalink: true
+  - codehilite:
+      linenums: true
+      guess_lang: false
+      use_pygments: false
+      noclasses: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.keys
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+extra:
+  search:
+    language: 'ja'
+
+extra_javascript:
+    - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js
+    - javascripts/config.js
+
+extra_css:
+    - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css
