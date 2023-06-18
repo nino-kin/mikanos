@@ -61,7 +61,7 @@ run: ## Run Mikan OS on QEMU
 	 source $(MAKEFILE_DIR)/build.sh run && echo -e "[INFO] Build was successfully!"
 
 qemu: ## Run Loader.efi on QEMU
-	@$(HOME)/osbook/devenv/run_qemu.sh $(HOME)/edk2/Build/MikanLoaderX64/DEBUG_CLANG38/X64/Loader.efi
+	@$(HOME)/osbook/devenv/run_qemu.sh $(HOME)/edk2/Build/MikanLoaderX64/DEBUG_CLANG38/X64/Loader.efi $(HOME)/workspace/mikanos/kernel/kernel.elf
 	@mkdir -p mnt && sudo mount -o loop disk.img mnt
 
 clean: ## Clean up the site image and generated documentation
